@@ -1,21 +1,23 @@
-# SWIOFish Zanzibar Website
+# TASFAM - Tanzania Scaling-up Sustainable Marine Fisheries and Aquaculture Management
 
 ## Overview
-Official website for the South West Indian Ocean Fisheries Governance and Shared Growth Project (SWIOFish) - Zanzibar Component.
+Official website for the Tanzania Scaling-up Sustainable Marine Fisheries and Aquaculture Management (TASFAM) Project.
 
 ## Project Information
-- **Project Name:** SWIOFish Zanzibar
-- **Organization:** Ministry of Blue Economy and Fisheries, Zanzibar
-- **Department:** Department of Fisheries Development and Marine Resources
+- **Project Name:** TASFAM (Tanzania Scaling-up Sustainable Marine Fisheries and Aquaculture Management)
 - **Funded by:** World Bank
+
+## Implementing Partners
+- Ministry of Livestock and Fisheries (Mainland)
+- Ministry of Blue Economy and Fisheries (Zanzibar)
+- Deep Sea Fishing Authority (DSFA)
 
 ## Website Sections
 - Home - Welcome and project overview
-- Projects - SWIOFish initiatives and programs
-- Stakeholders - Partner organizations and agencies
+- About - Project background and objectives
+- Components - TASFAM initiatives and programs
+- Partners - Implementing partner organizations
 - Research & Publication - Studies and reports
-- Monitoring & Evaluation - Project progress tracking
-- Fisheries Archives - Historical data and documents
 - Contact - Get in touch
 
 ## Technologies Used
@@ -35,10 +37,9 @@ Official website for the South West Indian Ocean Fisheries Governance and Shared
 
 ## Credits
 - Based on AgriCulture Bootstrap Template by BootstrapMade.com
-- Customized for SWIOFish Zanzibar, January 2026
+- Customized for TASFAM Tanzania, January 2026
 
 ## Contact
-Ministry of Blue Economy and Fisheries
-P.O. Box 159, Zanzibar, Tanzania
-Email: info@swiofish.zanzibar.go.tz
-Phone: +255 24 223 0061
+Ministry of Livestock and Fisheries
+Dar es Salaam, Tanzania
+Email: info@tasfam.go.tz

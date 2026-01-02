@@ -1,12 +1,12 @@
 /**
-* Template Name: SWIOFish Zanzibar
+* Template Name: TASFAM Zanzibar
 * Based on: AgriCulture Bootstrap Template
 * Updated: January 2026
 * Author: Ministry of Blue Economy and Fisheries, Zanzibar
 */
 
 /*--------------------------------------------------------------
-# SWIOFish Color Variables
+# TASFAM Color Variables
 --------------------------------------------------------------*/
 :root {
   --primary-blue: #1a8ccc;
@@ -230,19 +230,91 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Top Header Row
+--------------------------------------------------------------*/
+.top-header {
+  background-color: #ffffff;
+  padding: 15px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.top-header .top-logo {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.top-header .logo-text {
+  font-size: 32px;
+  font-weight: 700;
+  color: #1a8ccc;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.top-header .logo-img {
+  max-height: 70px;
+  width: auto;
+}
+
+.top-header .govt-logo {
+  max-height: 60px;
+}
+
+.top-header .ministry-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+
+.top-header .country-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: #2c5f7d;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.top-header .ministry-name {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+}
+
+@media (max-width: 767px) {
+  .top-header .ministry-text {
+    display: none;
+  }
+  
+  .top-header .logo-img {
+    max-height: 50px;
+  }
+  
+  .top-header .govt-logo {
+    max-height: 45px;
+  }
+}
+
+/*--------------------------------------------------------------
 # Global Header
 --------------------------------------------------------------*/
 .header {
   color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 20px 0;
+  background-color: #2c5f7d;
+  padding: 12px 0;
   transition: all 0.5s;
   z-index: 997;
-  border-bottom: 3px solid #1a8ccc;
+  border-bottom: none;
 }
 
 .header .logo {
   line-height: 1;
+}
+
+.header .logo .project-name-nav {
+  font-size: 22px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 1px;
 }
 
 .header .logo img {
@@ -681,9 +753,9 @@ h6 {
 
   .navmenu a,
   .navmenu a:focus {
-    color: var(--nav-color);
+    color: #ffffff;
     padding: 18px 15px;
-    font-size: 16px;
+    font-size: 15px;
     font-family: var(--nav-font);
     font-weight: 400;
     display: flex;
@@ -708,7 +780,7 @@ h6 {
   .navmenu li:hover>a,
   .navmenu .active,
   .navmenu .active:focus {
-    color: var(--nav-hover-color);
+    color: #4db8e8;
   }
 
   .navmenu .dropdown ul {
@@ -905,18 +977,18 @@ h6 {
   position: relative;
 }
 
-/* SWIOFish Custom Footer Styles */
-.swiofish-footer {
+/* TASFAM Custom Footer Styles */
+.tasfam-footer {
   background-color: #2c5f7d;
   color: #ffffff;
 }
 
-.swiofish-footer .footer-top {
+.tasfam-footer .footer-top {
   padding: 60px 0 40px;
   background: linear-gradient(135deg, #2c5f7d 0%, #1e4a5f 100%);
 }
 
-.swiofish-footer h4 {
+.tasfam-footer h4 {
   color: #ffffff;
   font-size: 18px;
   font-weight: 600;
@@ -925,7 +997,7 @@ h6 {
   padding-bottom: 12px;
 }
 
-.swiofish-footer h4::after {
+.tasfam-footer h4::after {
   content: "";
   position: absolute;
   display: block;
@@ -936,7 +1008,7 @@ h6 {
   left: 0;
 }
 
-.swiofish-footer p {
+.tasfam-footer p {
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.8;
   font-size: 14px;
@@ -1076,46 +1148,46 @@ h6 {
 }
 
 /* Quick Links */
-.swiofish-footer .footer-links ul {
+.tasfam-footer .footer-links ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.swiofish-footer .footer-links ul li {
+.tasfam-footer .footer-links ul li {
   padding: 10px 0;
   display: flex;
   align-items: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.swiofish-footer .footer-links ul li:first-child {
+.tasfam-footer .footer-links ul li:first-child {
   padding-top: 0;
 }
 
-.swiofish-footer .footer-links ul li:last-child {
+.tasfam-footer .footer-links ul li:last-child {
   border-bottom: none;
 }
 
-.swiofish-footer .footer-links ul i {
+.tasfam-footer .footer-links ul i {
   color: #1a8ccc;
   margin-right: 10px;
   font-size: 12px;
   transition: transform 0.3s ease;
 }
 
-.swiofish-footer .footer-links ul li:hover i {
+.tasfam-footer .footer-links ul li:hover i {
   transform: translateX(3px);
 }
 
-.swiofish-footer .footer-links ul a {
+.tasfam-footer .footer-links ul a {
   color: rgba(255, 255, 255, 0.85);
   transition: all 0.3s ease;
   text-decoration: none;
   font-size: 14px;
 }
 
-.swiofish-footer .footer-links ul a:hover {
+.tasfam-footer .footer-links ul a:hover {
   color: #ffffff;
 }
 
@@ -1149,7 +1221,7 @@ h6 {
 }
 
 @media (max-width: 991px) {
-  .swiofish-footer .footer-top {
+  .tasfam-footer .footer-top {
     padding: 50px 0 30px;
   }
   
@@ -1162,7 +1234,7 @@ h6 {
 }
 
 @media (max-width: 767px) {
-  .swiofish-footer .footer-top {
+  .tasfam-footer .footer-top {
     padding: 40px 0 20px;
   }
   
