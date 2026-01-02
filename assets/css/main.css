@@ -267,7 +267,7 @@ h6 {
 }
 
 .top-header .country-name {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #2c5f7d;
   text-transform: uppercase;
@@ -275,7 +275,7 @@ h6 {
 }
 
 .top-header .ministry-name {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: #666;
 }
