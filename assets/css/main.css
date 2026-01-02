@@ -281,16 +281,78 @@ h6 {
 }
 
 @media (max-width: 767px) {
+  .top-header {
+    padding: 10px 0;
+  }
+  
+  .top-header .row {
+    flex-wrap: nowrap;
+  }
+  
   .top-header .ministry-text {
     display: none;
   }
   
+  .top-header .logo-text {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+  
   .top-header .logo-img {
-    max-height: 50px;
+    max-height: 40px;
   }
   
   .top-header .govt-logo {
-    max-height: 45px;
+    max-height: 40px;
+  }
+  
+  /* Center logos when ministry text is hidden */
+  .top-header .col-md-3.col-4:first-child {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .top-header .col-md-3.col-4:last-child {
+    flex: 0 0 50%;
+    max-width: 50%;
+  }
+  
+  .top-header .col-md-6.col-4 {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .top-header .logo-text {
+    font-size: 18px;
+  }
+  
+  .top-header .logo-img,
+  .top-header .govt-logo {
+    max-height: 35px;
+  }
+}
+
+/* Tablet styles */
+@media (min-width: 768px) and (max-width: 991px) {
+  .top-header .country-name {
+    font-size: 12px;
+  }
+  
+  .top-header .ministry-name {
+    font-size: 10px;
+  }
+  
+  .top-header .logo-text {
+    font-size: 26px;
+  }
+  
+  .top-header .logo-img {
+    max-height: 55px;
+  }
+  
+  .top-header .govt-logo {
+    max-height: 50px;
   }
 }
 
@@ -843,7 +905,7 @@ h6 {
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
-    color: var(--nav-color);
+    color: #ffffff;
     font-size: 28px;
     line-height: 0;
     margin-right: 10px;
@@ -854,6 +916,9 @@ h6 {
   .navmenu {
     padding: 0;
     z-index: 9997;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
   }
 
   .navmenu ul {
