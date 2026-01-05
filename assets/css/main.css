@@ -289,6 +289,15 @@ h6 {
     flex-wrap: nowrap;
   }
   
+
+  /* Hide nav list by default on small screens; shown when .mobile-nav-active is toggled */
+  .navmenu>ul {
+    display: none;
+  }
+
+  .navmenu>ul li {
+    display: block;
+  }
   .top-header .ministry-text {
     display: none;
   }
@@ -560,6 +569,8 @@ h6 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
+  /* Standard property for line clamping (when supported) */
+  line-clamp: 2;
   overflow: hidden;
 }
 
@@ -796,7 +807,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .navmenu {
     padding: 0;
   }
@@ -805,6 +816,8 @@ h6 {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
     list-style: none;
     align-items: center;
   }
@@ -816,7 +829,7 @@ h6 {
   .navmenu a,
   .navmenu a:focus {
     color: #ffffff;
-    padding: 18px 15px;
+    padding: 14px 12px;
     font-size: 15px;
     font-family: var(--nav-font);
     font-weight: 400;
@@ -908,7 +921,7 @@ h6 {
 }
 
 /* Navmenu - Mobile */
-@media (max-width: 1199px) {
+@media (max-width: 991px) {
   .mobile-nav-toggle {
     display: block;
     color: #ffffff;
@@ -1748,7 +1761,7 @@ html.aos-initialized [data-aos].aos-animate {
 
 .hero .carousel {
   width: 100%;
-  min-height: calc(100vh - 100px);
+  min-height: 70vh;
   padding: 0;
   margin: 0;
   background-color: var(--background-color);
@@ -1784,7 +1797,7 @@ html.aos-initialized [data-aos].aos-animate {
 
 .hero .carousel-container {
   position: absolute;
-  inset: 90px 64px 64px 64px;
+  inset: 60px 48px 48px 48px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1793,7 +1806,7 @@ html.aos-initialized [data-aos].aos-animate {
 }
 
 .hero h2 {
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   font-size: 48px;
   font-weight: 700;
   animation: fadeInDown 1s both;
