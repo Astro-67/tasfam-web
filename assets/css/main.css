@@ -1852,6 +1852,29 @@ html.aos-initialized [data-aos].aos-animate {
   .hero h2 {
     font-size: 30px;
   }
+
+  /* Mobile: reduce the hero min-height so it stays compact but still visible */
+  .hero .carousel {
+    min-height: 50vh;
+    position: relative;
+  }
+
+  .hero .carousel-item {
+    position: relative;
+    height: auto;
+  }
+
+  .hero img {
+    position: relative;
+    height: auto;
+    max-height: 360px;
+  }
+
+  .hero .carousel-container {
+    position: relative;
+    inset: auto;
+    padding: 20px 16px;
+  }
 }
 
 .hero p {
