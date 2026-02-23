@@ -1,0 +1,7 @@
+services:
+  web:
+    build: .
+    container_name: tasfam-web
+    ports:
+      - "7070:80"
+    restart: unless-stopped
