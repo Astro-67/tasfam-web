@@ -2,20 +2,6 @@ services:
   web:
     build: .
     container_name: tasfam-web
-    expose:
-      - "80"
-    restart: unless-stopped
-
-  nginx:
-    image: nginx:alpine
-    container_name: tasfam-proxy
     ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - /etc/ssl/STAR_blueeconomysmz_go_tz.crt:/etc/ssl/tasfam.crt:ro
-      - /etc/ssl/STAR_blueeconomysmz_go_tz.key:/etc/ssl/tasfam.key:ro
-    depends_on:
-      - web
+      - "7070:80"
     restart: unless-stopped
