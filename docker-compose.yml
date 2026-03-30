@@ -7,6 +7,8 @@ services:
     environment:
       - DATABASE_URL=postgresql://${DB_USER:-tasfam}:${DB_PASSWORD:-MyTasfam@2026}@db:5432/tasfam
       - JWT_SECRET=${JWT_SECRET:-xZ5dc9P2LTVWGb2X/+liSO5bU7YoDMCySYRrM5dGH9o=}
+    volumes:
+      - uploads:/app/public/uploads
     depends_on:
       db:
         condition: service_healthy
@@ -32,3 +34,4 @@ services:
 
 volumes:
   pgdata:
+  uploads:
