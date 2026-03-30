@@ -2,6 +2,9 @@ import Link from 'next/link';
 import { getHeroSlides, getNewsItems, getImplementingPartners } from '@/lib/db';
 import HeroCarousel from '@/components/home/HeroCarousel';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 const fallbackSlides: { image: string; caption: string }[] = [];
 
 const fallbackNews: { image: string; date: string; title: string }[] = [];
