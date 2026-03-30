@@ -44,7 +44,8 @@
       "Bash(pkill -f 'next dev')"
     ],
     "additionalDirectories": [
-      "/Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms"
+      "/Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms",
+      "/Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/frontend/src/app/api/uploads"
     ]
   }
 }
