@@ -41,8 +41,8 @@ export default async function HomePage() {
     const newsRes = await getNewsItems();
     if (Array.isArray(newsRes.data)) {
       news = newsRes.data.map((n: Record<string, unknown>) => ({
-        image: (n as { image?: string }).image || '',
-        date: (n as { date?: string }).date || '',
+        image: (n as { thumbnail?: string }).thumbnail || '',
+        date: (n as { dateBadge?: string }).dateBadge || '',
         title: (n as { title?: string }).title || '',
       }));
     }
