@@ -38,7 +38,8 @@
       "Bash(git commit:*)",
       "Bash(ls -la /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/public/img/hero_*.jpg)",
       "Bash(grep -v \".git$\")",
-      "Bash(openssl rand:*)"
+      "Bash(openssl rand:*)",
+      "Bash(git push:*)"
     ],
     "additionalDirectories": [
       "/Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms"
