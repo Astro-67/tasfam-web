@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(ls /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/*.html)",
+      "Bash(npx create-strapi-app@latest . --quickstart --no-run --typescript)",
+      "Bash(npx create-next-app@latest . --typescript --tailwind=false --eslint --app --src-dir --import-alias=\"@/*\" --no-turbopack --use-npm)",
+      "Bash(pkill -f \"create-next-app\")",
+      "Bash(rm -rf /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/*)",
+      "Bash(rm -rf /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/.*)",
+      "Bash(npx --yes create-next-app@latest . --typescript --no-tailwind --eslint --app --src-dir --import-alias=\"@/*\" --no-turbopack --use-npm --no-experimental-app)",
+      "Bash(rm -rf /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend)",
+      "Bash(mkdir -p /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend)",
+      "Bash(cp -r /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/assets/img/* /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/public/img/)",
+      "Bash(cp -r /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/assets/images/* /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/public/images/)",
+      "Bash(npm install:*)",
+      "Bash(pkill -f \"create-strapi\")",
+      "Bash(rm -rf /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/backend/*)",
+      "Bash(rm -rf /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/backend/.*)",
+      "Bash(ls /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/src/app/blog/[slug]/)",
+      "Bash(npx next:*)",
+      "Bash(docker ps:*)",
+      "Bash(docker run:*)",
+      "Bash(DATABASE_CLIENT=postgres DATABASE_HOST=127.0.0.1 DATABASE_PORT=5433 DATABASE_NAME=tasfam DATABASE_USERNAME=strapi DATABASE_PASSWORD=strapi npm run develop)",
+      "Bash(DATABASE_CLIENT=postgres DATABASE_HOST=127.0.0.1 DATABASE_PORT=5433 DATABASE_NAME=tasfam DATABASE_USERNAME=strapi DATABASE_PASSWORD=strapi npx strapi develop)",
+      "Bash(pkill -f \"strapi develop\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(docker stop:*)",
+      "Bash(docker rm:*)",
+      "Bash(find /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/src/app/admin -name *.tsx)",
+      "Bash(for f:*)",
+      "Bash(do sed:*)",
+      "Bash(echo \"updated $f\")",
+      "Bash(done)",
+      "Bash(npx prisma:*)",
+      "Bash(DATABASE_URL=\"postgresql://tasfam:tasfam123@localhost:5433/tasfam\" npx prisma migrate dev --name init)",
+      "Bash(DATABASE_URL=\"postgresql://tasfam:tasfam123@localhost:5433/tasfam\" npx tsx prisma/seed.ts)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(ls -la /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/public/img/hero_*.jpg)"
+    ]
+  }
+}
