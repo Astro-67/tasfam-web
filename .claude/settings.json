@@ -39,7 +39,9 @@
       "Bash(ls -la /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/public/img/hero_*.jpg)",
       "Bash(grep -v \".git$\")",
       "Bash(openssl rand:*)",
-      "Bash(git push:*)"
+      "Bash(git push:*)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(pkill -f 'next dev')"
     ],
     "additionalDirectories": [
       "/Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms"
