@@ -1,0 +1,10 @@
+.git
+.gitignore
+.env
+*.md
+node_modules
+.next
+.cache
+dist
+build
+.tmp

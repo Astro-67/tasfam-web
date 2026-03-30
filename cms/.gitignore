@@ -1,0 +1,12 @@
+node_modules/
+.next/
+.cache/
+dist/
+build/
+.tmp/
+.env
+*.log
+.DS_Store
+postgres-data/
+frontend/public/uploads/*
+!frontend/public/uploads/.gitkeep
