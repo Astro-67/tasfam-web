@@ -33,8 +33,8 @@ export default async function HomePage() {
         caption: (s as { caption?: string }).caption || '',
       }));
     }
-  } catch {
-    // Use fallback slides
+  } catch (err) {
+    console.error('Failed to fetch hero slides:', err);
   }
 
   try {
@@ -46,8 +46,8 @@ export default async function HomePage() {
         title: (n as { title?: string }).title || '',
       }));
     }
-  } catch {
-    // Use fallback news
+  } catch (err) {
+    console.error('Failed to fetch news:', err);
   }
 
   try {
@@ -60,8 +60,8 @@ export default async function HomePage() {
         logo: (p as { logo?: string }).logo,
       }));
     }
-  } catch {
-    // Use fallback partners
+  } catch (err) {
+    console.error('Failed to fetch partners:', err);
   }
 
   return (
