@@ -5,8 +5,8 @@ services:
     ports:
       - "7070:3000"
     environment:
-      - DATABASE_URL=postgresql://${DB_USER:-tasfam}:${DB_PASSWORD:-tasfam123}@db:5432/tasfam
-      - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
+      - DATABASE_URL=postgresql://${DB_USER:-tasfam}:${DB_PASSWORD:-MyTasfam@2026}@db:5432/tasfam
+      - JWT_SECRET=${JWT_SECRET:-xZ5dc9P2LTVWGb2X/+liSO5bU7YoDMCySYRrM5dGH9o=}
     depends_on:
       db:
         condition: service_healthy
@@ -15,10 +15,12 @@ services:
   db:
     image: postgres:16-alpine
     container_name: tasfam-db
+    ports:
+      - "5436:5432"
     environment:
       - POSTGRES_DB=tasfam
       - POSTGRES_USER=${DB_USER:-tasfam}
-      - POSTGRES_PASSWORD=${DB_PASSWORD:-tasfam123}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-MyTasfam@2026}
     volumes:
       - pgdata:/var/lib/postgresql/data
     healthcheck:
