@@ -36,7 +36,11 @@
       "Bash(DATABASE_URL=\"postgresql://tasfam:tasfam123@localhost:5433/tasfam\" npx tsx prisma/seed.ts)",
       "Bash(git add:*)",
       "Bash(git commit:*)",
-      "Bash(ls -la /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/public/img/hero_*.jpg)"
+      "Bash(ls -la /Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms/frontend/public/img/hero_*.jpg)",
+      "Bash(grep -v \".git$\")"
+    ],
+    "additionalDirectories": [
+      "/Users/masoudhamad/workspace/devWeb/tasfarm/tasfam-web/cms"
     ]
   }
 }

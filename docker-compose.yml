@@ -1,7 +1,32 @@
 services:
   web:
-    build: .
+    build: ./frontend
     container_name: tasfam-web
     ports:
-      - "7070:80"
+      - "7070:3000"
+    environment:
+      - DATABASE_URL=postgresql://${DB_USER:-tasfam}:${DB_PASSWORD:-tasfam123}@db:5432/tasfam
+      - JWT_SECRET=${JWT_SECRET:-change-me-in-production}
+    depends_on:
+      db:
+        condition: service_healthy
     restart: unless-stopped
+
+  db:
+    image: postgres:16-alpine
+    container_name: tasfam-db
+    environment:
+      - POSTGRES_DB=tasfam
+      - POSTGRES_USER=${DB_USER:-tasfam}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-tasfam123}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-tasfam} -d tasfam"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  pgdata:

@@ -1,9 +1,10 @@
 .git
 .gitignore
-.dockerignore
-Dockerfile
-docker-compose.yml
-README.md
+.env
 *.md
-.vscode
-.idea
+node_modules
+.next
+.cache
+dist
+build
+.tmp
