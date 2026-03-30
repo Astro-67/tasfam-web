@@ -2,25 +2,11 @@ import Link from 'next/link';
 import { getHeroSlides, getNewsItems, getImplementingPartners } from '@/lib/db';
 import HeroCarousel from '@/components/home/HeroCarousel';
 
-const fallbackSlides = [
-  { image: '/img/hero_1.jpg', caption: 'Operational Manager wa Benk ya Dunia Bibi Preeti Arora akipata fursa ya kutembelea Wizara ya Uchumi wa Blue na Uvuvi na kuzungumza na wasimamizi wa Mradi wa TASFAM Zanzibar' },
-  { image: '/img/hero_2.jpg', caption: 'Aliyekua Msimamizi Mkuu wa Mradi wa tasfam Tanzania akimkabidhi Mkuu mpya usimamizi wa Mradi wa TASFAM Tanzania Enos E. Esikuri' },
-  { image: '/img/hero_3.jpg', caption: 'Mkurugenzi wa Idara ya Maendeleo ya Uvuvi na Mazao ya Baharini Ndugu Mussa akifungua kikao cha Mafunzo ya mfumo mpya wa Uchukuaaji wa Takwimu(SAMAKIs)' },
-  { image: '/img/hero_4.jpg', caption: 'Wananchi wa Kijiji cha Michamvi wakifurahia Ufunguaji wa Pweza katika Ufunguzi Pweza' },
-  { image: '/img/hero_5.jpg', caption: 'Wafugaji wa Majongoo Bahari Sea cucumber' },
-];
+const fallbackSlides: { image: string; caption: string }[] = [];
 
-const fallbackNews = [
-  { image: '/img/blog/blog-1.jpg', date: 'Jan 02', title: 'World Bank Delegation Visits TASFAM Zanzibar Project' },
-  { image: '/img/blog/blog-2.jpg', date: 'Dec 28', title: 'SAMAKI Data Collection System Training Launched' },
-  { image: '/img/blog/blog-3.jpg', date: 'Dec 20', title: 'Michamvi Village Celebrates Octopus Fishing Season Opening' },
-];
+const fallbackNews: { image: string; date: string; title: string }[] = [];
 
-const fallbackPartners: { name: string; icon: string; link?: string; logo?: string }[] = [
-  { name: 'MINISTRY OF LIVESTOCK AND FISHERIES (MAINLAND)', icon: 'bi-building', link: 'https://www.mifugouvuvi.go.tz', logo: '/images/agencies/mlf-logo.png' },
-  { name: 'MINISTRY OF BLUE ECONOMY AND FISHERIES (ZANZIBAR)', logo: '/images/smz-logo.jpeg', icon: 'bi-water' },
-  { name: 'DEEP SEA FISHING AUTHORITY (DSFA)', icon: 'bi-globe', logo: '/images/agencies/dsfa-logo.png' },
-];
+const fallbackPartners: { name: string; icon: string; link?: string; logo?: string }[] = [];
 
 const monitoringCards = [
   { icon: 'bi-bar-chart-line', title: 'Takwimu za Uvuvi', desc: 'Ukusanyaji na uchambuzi wa takwimu za uvuvi na samaki wanaovuliwa.' },
@@ -38,9 +24,9 @@ export default async function HomePage() {
 
   try {
     const slidesRes = await getHeroSlides();
-    if (Array.isArray(slidesRes.data) && slidesRes.data.length > 0) {
+    if (Array.isArray(slidesRes.data)) {
       slides = slidesRes.data.map((s: Record<string, unknown>) => ({
-        image: (s as { image?: string }).image || '/img/hero_1.jpg',
+        image: (s as { image?: string }).image || '',
         caption: (s as { caption?: string }).caption || '',
       }));
     }
@@ -50,9 +36,9 @@ export default async function HomePage() {
 
   try {
     const newsRes = await getNewsItems();
-    if (Array.isArray(newsRes.data) && newsRes.data.length > 0) {
+    if (Array.isArray(newsRes.data)) {
       news = newsRes.data.map((n: Record<string, unknown>) => ({
-        image: (n as { image?: string }).image || '/img/blog/blog-1.jpg',
+        image: (n as { image?: string }).image || '',
         date: (n as { date?: string }).date || '',
         title: (n as { title?: string }).title || '',
       }));
@@ -63,7 +49,7 @@ export default async function HomePage() {
 
   try {
     const partnersRes = await getImplementingPartners();
-    if (Array.isArray(partnersRes.data) && partnersRes.data.length > 0) {
+    if (Array.isArray(partnersRes.data)) {
       partners = partnersRes.data.map((p: Record<string, unknown>) => ({
         name: (p as { name?: string }).name || '',
         icon: (p as { icon?: string }).icon || 'bi-building',
