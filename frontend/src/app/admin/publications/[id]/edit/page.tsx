@@ -19,6 +19,8 @@ export default function EditPublicationPage() {
   const [file, setFile] = useState('');
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploading, setUploading] = useState(false);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     fetch(`/api/admin/publications/${id}`)
@@ -39,15 +41,28 @@ export default function EditPublicationPage() {
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const f = e.target.files?.[0];
     if (!f) return;
-    const fd = new FormData();
-    fd.append('file', f);
-    const res = await fetch('/api/upload', { method: 'POST', body: fd });
-    const data = await res.json();
-    if (data.url) setFile(data.url);
+    setError('');
+    setUploading(true);
+    try {
+      const fd = new FormData();
+      fd.append('file', f);
+      const res = await fetch('/api/upload', { method: 'POST', body: fd });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || `Upload failed (${res.status})`);
+        return;
+      }
+      if (data.url) setFile(data.url);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed');
+    } finally {
+      setUploading(false);
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setError('');
     setSaving(true);
     try {
       const res = await fetch(`/api/admin/publications/${id}`, {
@@ -55,7 +70,12 @@ export default function EditPublicationPage() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...form, file }),
       });
-      if (res.ok) router.push('/admin/publications');
+      if (res.ok) {
+        router.push('/admin/publications');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        setError(data.error || `Save failed (${res.status})`);
+      }
     } finally {
       setSaving(false);
     }
@@ -96,11 +116,17 @@ export default function EditPublicationPage() {
             </div>
             <div className="mb-3">
               <label className="form-label">File (PDF)</label>
-              <input type="file" className="form-control" accept=".pdf,application/pdf" onChange={handleUpload} />
-              {file && <p className="mt-1 text-success small">Current file: {file}</p>}
+              <input type="file" className="form-control" accept=".pdf,application/pdf" onChange={handleUpload} disabled={uploading} />
+              {uploading && <p className="mt-1 text-muted small">Uploading...</p>}
+              {file && (
+                <p className="mt-1 text-success small">
+                  Current file: <a href={file} target="_blank" rel="noopener noreferrer">{file}</a>
+                </p>
+              )}
             </div>
+            {error && <div className="alert alert-danger py-2">{error}</div>}
             <div className="d-flex gap-2">
-              <button type="submit" className="btn text-white" style={{ background: '#2c5f7d' }} disabled={saving}>
+              <button type="submit" className="btn text-white" style={{ background: '#2c5f7d' }} disabled={saving || uploading}>
                 {saving ? 'Saving...' : 'Save'}
               </button>
               <button type="button" className="btn btn-secondary" onClick={() => router.push('/admin/publications')}>Cancel</button>

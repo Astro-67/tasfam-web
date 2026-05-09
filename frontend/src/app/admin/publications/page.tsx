@@ -9,6 +9,7 @@ interface Publication {
   category: string | null;
   fileSize: string | null;
   publishDate: string;
+  file: string | null;
 }
 
 export default function PublicationsListPage() {
@@ -53,12 +54,13 @@ export default function PublicationsListPage() {
                 <th>Category</th>
                 <th>File Size</th>
                 <th>Publish Date</th>
+                <th>File</th>
                 <th>Actions</th>
               </tr>
             </thead>
             <tbody>
               {items.length === 0 && (
-                <tr><td colSpan={5} className="text-center text-muted py-4">No publications yet</td></tr>
+                <tr><td colSpan={6} className="text-center text-muted py-4">No publications yet</td></tr>
               )}
               {items.map((item) => (
                 <tr key={item.id}>
@@ -66,6 +68,15 @@ export default function PublicationsListPage() {
                   <td>{item.category || '-'}</td>
                   <td>{item.fileSize || '-'}</td>
                   <td>{new Date(item.publishDate).toLocaleDateString()}</td>
+                  <td>
+                    {item.file ? (
+                      <a href={item.file} target="_blank" rel="noopener noreferrer" className="btn btn-sm btn-outline-success">
+                        <i className="bi bi-eye"></i> Preview
+                      </a>
+                    ) : (
+                      <span className="text-muted small">No file</span>
+                    )}
+                  </td>
                   <td>
                     <button className="btn btn-sm btn-outline-primary me-1" onClick={() => router.push(`/admin/publications/${item.id}/edit`)}>
                       <i className="bi bi-pencil"></i>
