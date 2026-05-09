@@ -13,6 +13,12 @@ const ALLOWED_TYPES = [
 
 const MAX_SIZE = 10 * 1024 * 1024; // 10 MB
 
+function formatFileSize(bytes: number): string {
+  if (bytes < 1024) return `${bytes} B`;
+  if (bytes < 1024 * 1024) return `${(bytes / 1024).toFixed(1)} KB`;
+  return `${(bytes / (1024 * 1024)).toFixed(1)} MB`;
+}
+
 export async function POST(request: NextRequest) {
   try { await requireAdmin(); } catch { return NextResponse.json({ error: 'Unauthorized' }, { status: 401 }); }
 
@@ -61,7 +67,10 @@ export async function POST(request: NextRequest) {
     const filePath = path.join(uploadsDir, filename);
     await writeFile(filePath, buffer);
 
-    return NextResponse.json({ url: `/api/uploads/${filename}` });
+    const ext_label = ext.replace('.', '').toUpperCase();
+    const size = `${ext_label}, ${formatFileSize(file.size)}`;
+
+    return NextResponse.json({ url: `/api/uploads/${filename}`, size });
   } catch (error) {
     console.error('Upload error:', error);
     return NextResponse.json(

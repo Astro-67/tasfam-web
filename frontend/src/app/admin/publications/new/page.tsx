@@ -11,9 +11,9 @@ export default function NewPublicationPage() {
     title: '',
     description: '',
     category: '',
-    fileSize: '',
     publishDate: new Date().toISOString().split('T')[0],
   });
+  const [fileSize, setFileSize] = useState('');
   const [file, setFile] = useState('');
   const [saving, setSaving] = useState(false);
   const [uploading, setUploading] = useState(false);
@@ -34,6 +34,7 @@ export default function NewPublicationPage() {
         return;
       }
       if (data.url) setFile(data.url);
+      if (data.size) setFileSize(data.size);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Upload failed');
     } finally {
@@ -49,7 +50,7 @@ export default function NewPublicationPage() {
       const res = await fetch('/api/admin/publications', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...form, file }),
+        body: JSON.stringify({ ...form, file, fileSize }),
       });
       if (res.ok) {
         router.push('/admin/publications');
@@ -77,18 +78,14 @@ export default function NewPublicationPage() {
               <textarea className="form-control" rows={4} value={form.description} onChange={(e) => setForm({ ...form, description: e.target.value })} />
             </div>
             <div className="row">
-              <div className="col-md-6 mb-3">
+              <div className="col-md-8 mb-3">
                 <label className="form-label">Category</label>
                 <select className="form-select" value={form.category} onChange={(e) => setForm({ ...form, category: e.target.value })}>
                   <option value="">Select category</option>
                   {CATEGORIES.map((c) => <option key={c} value={c}>{c}</option>)}
                 </select>
               </div>
-              <div className="col-md-3 mb-3">
-                <label className="form-label">File Size</label>
-                <input type="text" className="form-control" placeholder="e.g. 2.5 MB" value={form.fileSize} onChange={(e) => setForm({ ...form, fileSize: e.target.value })} />
-              </div>
-              <div className="col-md-3 mb-3">
+              <div className="col-md-4 mb-3">
                 <label className="form-label">Publish Date</label>
                 <input type="date" className="form-control" value={form.publishDate} onChange={(e) => setForm({ ...form, publishDate: e.target.value })} />
               </div>
@@ -100,6 +97,7 @@ export default function NewPublicationPage() {
               {file && (
                 <p className="mt-1 text-success small">
                   File uploaded: <a href={file} target="_blank" rel="noopener noreferrer">{file}</a>
+                  {fileSize && <span className="text-muted"> ({fileSize})</span>}
                 </p>
               )}
             </div>
